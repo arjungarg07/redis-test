@@ -9,6 +9,7 @@ import (
 	"github.com/redis/go-redis/v9"
 	"log"
 	pb "module-path/schema/types"
+	"time"
 )
 
 func main() {
@@ -60,7 +61,7 @@ func main() {
 
 	redisKey := "ps:proto"
 	ctx := context.Background()
-	err = client.Set(ctx, redisKey, data, 100).Err()
+	err = client.Set(ctx, redisKey, data, 1*time.Second).Err()
 	if err != nil {
 		log.Fatal("Error setting data in Redis:", err)
 	}
