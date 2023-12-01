@@ -98,6 +98,19 @@ func main() {
 	if err != nil {
 		log.Fatal("Error getting size from Redis:", err)
 	}
+
+	redisKey = "ps:uncompressed_string"
+	err = client.Set(ctx, redisKey, inputString, 0).Err()
+	if err != nil {
+		log.Fatal("Error setting data in Redis:", err)
+	}
+
+	// Get the size of stored data
+	size, err = client.MemoryUsage(ctx, redisKey).Result()
+	println("Memory usage of UnCompressed string%s", size)
+	if err != nil {
+		log.Fatal("Error getting size from Redis:", err)
+	}
 }
 
 func gzipCompress(input []byte) ([]byte, error) {
