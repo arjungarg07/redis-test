@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package types;
+
+option go_package = "./types";
+
+
+message PostFeatureStaticResponse {
+  float content_type = 1;
+  string tag_id = 2;
+  string creator_id = 3;
+  string language = 4;
+  string genre = 5;
+  string creator_badge = 6;
+  string l0_taxonomy = 7;
+  string l1_taxonomy = 8;
+  string l2_taxonomy = 9;
+  string l3_taxonomy = 10;
+  string l4_taxonomy = 11;
+  string created_on = 12;
+  bool comment_off = 13;
+  bool post_share_disabled = 14;
+  string height = 15;
+  string width = 16;
+  string l0_topic = 17;
+  string l1_topic = 18;
+  string l2_topic = 19;
+  string l1_topic_v2 = 20;
+  float duration = 21;
+  string creatorIp = 22;
+  string creatorCity = 23;
+  string creatorState = 24;
+  float predictedprob = 25;
+  string predictedtopic = 26;
+  string hybrid_topic = 27;
+  string creatorGender = 28;
+  string badge = 29;
+  string creatorType = 30;
+}
