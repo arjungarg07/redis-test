@@ -52,7 +52,7 @@ func main() {
 		CreatorType:       "unverified",
 	}
 
-	// Serialize the protobuf message
+	// Serializing the protobuf message
 	data, err := proto.Marshal(post)
 	if err != nil {
 		log.Fatal("Error marshalling protobuf:", err)
@@ -65,14 +65,13 @@ func main() {
 		log.Fatal("Error setting data in Redis:", err)
 	}
 
-	// Get the size of stored data
 	size, err := client.MemoryUsage(ctx, redisKey).Result()
 	println("Memory usage of protobuf", size)
 	if err != nil {
 		log.Fatal("Error getting size from Redis:", err)
 	}
 
-	// Your input string
+	// input string
 	inputString := "video^17598940^1710570516^Hindi^N/A^^^^^^^1698728604^0^0^1920^1080^^^^Food^17.159^183702262197479816^bhiwani^haryana^0.32963661752448825^food^^UNK^unverified^UNK"
 	inputBytes := []byte(inputString)
 	// Gzip compression
